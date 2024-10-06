@@ -4,7 +4,7 @@ from django.utils.translation import gettext_lazy as _
 class Category(models.Model):
     parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
     title = models.CharField(_('title'), max_length=100)
-    descrition = models.TextField(_('descrition'),blank=True, null=True)
+    description = models.TextField(_('descrition'),blank=True, null=True)
     avatar = models.ImageField(blank=True, upload_to='categories')
     is_enabled = models.BooleanField(default=True)
     created_time = models.DateTimeField(auto_now_add=True)
@@ -19,7 +19,7 @@ class Category(models.Model):
 
 class Product(models.Model):
     title = models.CharField(max_length=100)
-    descrition = models.TextField(_('descrition'),blank=True, null=True)
+    description = models.TextField(_('descrition'),blank=True, null=True)
     avatar = models.ImageField(blank=True, upload_to='categories')
     is_enabled = models.BooleanField(default=True)
     created_time = models.DateTimeField(auto_now_add=True)
