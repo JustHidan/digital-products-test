@@ -24,7 +24,7 @@ class Product(models.Model):
     is_enabled = models.BooleanField(default=True)
     created_time = models.DateTimeField(auto_now_add=True)
     updated_time = models.DateTimeField(auto_now=True)
-    category = models.ManyToManyField(Category , verbose_name=_('category'))
+    categories = models.ManyToManyField(Category , verbose_name=_('category'))
     class Meta:
         verbose_name = _('product')
         verbose_name_plural = _('products')
