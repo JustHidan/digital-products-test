@@ -33,7 +33,7 @@ class Product(models.Model):
 
 
 class File(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name=_('product'))
+    product = models.ForeignKey(Product, on_delete=models.CASCADE,related_name='files' ,verbose_name=_('product'))
     title = models.CharField(max_length=100)
     is_enabled = models.BooleanField(default=True)
     created_time = models.DateTimeField(auto_now_add=True)
