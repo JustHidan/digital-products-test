@@ -47,3 +47,12 @@ class FileListView(APIView):
 
         serializer = FileSerializer(files, many=True,context= {'request':request})
         return Response(serializer.data)
+
+class FileDetailView(APIView):
+    def get(self,request,p_id,f_id):
+        try:
+            file = File.objects.get(product_id=p_id,pk=f_id)
+        except File.DoesNotExist:
+            return Response( "file ni ", status=status.HTTP_404_NOT_FOUND)
+        serializer = FileSerializer(file, context= {'request':request})
+        return Response(serializer.data)
